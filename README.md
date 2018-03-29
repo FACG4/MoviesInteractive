@@ -1,5 +1,7 @@
 # MoviesInteractive
 
+![movies](http://www.bestfon.info/images/joomgallery/originals/3d_3/movietime_20160720_1353878622.jpg)
+
 #### About:
 The basic idea of the site is to write the movie's name you want to search for,
 after clicking search, the information of all the possible results will be grabbed and
@@ -32,6 +34,16 @@ when you choose any Movie you want, the page will be updated the movie's details
   .(api.themoviedb.org/3)"https://api.themoviedb.org/3/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=5bb2c5fa478415bd431d599cac1bd762".
   .(OMDB) `http://www.omdbapi.com/?s=${input}&apikey=6245962e`.
 
+### How to run?
+
+#### use this url:
+
+  . (https://facg4.github.io/MoviesInteractive/public/index.html).
+
+#### or run locally:
+  .$ git clone https://github.com/ORG/PROJECT.git
+  .$ cd MoviesInteractive
+  .$ npm install
 
 ###### This project is done by:
         Abdallah, Inas, Ishak and Eman.
