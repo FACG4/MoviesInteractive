@@ -25,24 +25,24 @@ h2 {
   display: flex;
 }
 
-.popular{
-/* overflow: auto; */
- margin: 20px 20px 20px 20px;
- width: 900px;
- display: flex;
- position: absolute;
- bottom: 189px;
- left: 11vw;
+.popular {
+  overflow: hidden;
+  margin: 20px 20px 20px 20px;
+  width: 900px;
+  display: flex;
+  position: absolute;
+  bottom: 128px;
+  left: 15vw;
 }
 .popular::-webkit-scrollbar {
   display: none;
 }
 
-.popular img {
-  width: 60px;
-  height: 120px;
-  margin-right: 5px;
-}
+.popular img { 
+  width: 100px;
+   height: 150px; 
+   margin-right: 5px;
+  }
 .screen {
   position: absolute;
   position: absolute;
@@ -138,22 +138,31 @@ body{
   15%{background: #e6e2e1;
 
   }}
-figcaption {
-  position: absolute;
-  top: -382px;
-  left: 0px;
-  background: #71747533;
-  width: 98%;
-  height: 313px;
-  padding: 20px;
-  text-align: left;
-  margin: -4px -14px;
-  color: #fff;
-  font-size: 2em;
 
+
+  figcaption {
+      position: absolute;
+      top: -18px;
+      left: 0px;
+      background: #71747569;
+      width: 98%;
+      height: 313px;
+      padding: 20px;
+      text-align: left;
+      margin: -4px -14px;
+      color: #fff;
+      font-size: 2em;
+  }
+.search {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: 34px;
+  left: 166px;
 }
 
-@media only screen only screen and (max-width: 760px){
+@media  only screen and (max-width: 760px){
   .popular {
     display: flex;
     justify-content: center;
