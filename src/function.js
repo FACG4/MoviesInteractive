@@ -40,7 +40,7 @@ function ticket(xhr, cb){
 
 
 if (typeof module !== 'undefined') {
-  module.exports = { makeRequest ,ticket ,filter,select};
+  module.exports = { makeRequest ,ticket ,select};
 }
 
 

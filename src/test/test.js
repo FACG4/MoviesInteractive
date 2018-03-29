@@ -50,7 +50,7 @@ tape("insure responseText retreve object  ",function(t){
 
 
 tape("test ticket   ",function(t){
-    const urlticket="http://127.0.0.1:8000/ticket/";
+    const urlticket="http://api.issc.co/public/ticket/";
     const expected = ['bnazmi', 'emanKhaledh', 'InassTubail', 'ishak52'];
     let actual;
     makeRequest(urlticket, function(response){
