@@ -24,51 +24,60 @@ function displayPop(response) {
   var popularImage;
     response.results.map(function(repo) {
        popularImage= "http://image.tmdb.org/t/p/w185/" + repo.poster_path;
-
+       var popularfigure = document.createElement("figure");
+       popularfigure.classList.add('figure');
        var DOM_img = document.createElement("img");
+       var figcaption = document.createElement("figcaption");
        DOM_img.src = popularImage;
        DOM_img.alt= repo.id;
-       var a=select('#popular');
-      a.appendChild(DOM_img);
+       figcaption.textContent=repo.overview;
+       figcaption.classList.add('figcaption');
+       figcaption.classList.add('disappear');
+       DOM_img.addEventListener("mouseover",function(){
+        figcaption.classList.toggle('disappear'); 
+        
+       });
+       DOM_img.addEventListener("mouseout",function(){
+        figcaption.classList.toggle('disappear'); 
 
+       })
+       var a=select('#popular');
+       a.appendChild(popularfigure);
+       popularfigure.appendChild(DOM_img);
+       popularfigure.appendChild(figcaption);
        DOM_img.addEventListener('click', function(){
          var screen=select('#screen');
          screen.textContent = "";
 
-                //console.log(DOM_img.alt);
          var id=DOM_img.alt;
 
          var urlKey="http://api.themoviedb.org/3/movie/" +id+ "/videos?api_key=5bb2c5fa478415bd431d599cac1bd762";
-         console.log(urlKey);
 
         makeRequest(urlKey, function(response) {
-          console.log(response);
 
-          response.results.map(function(repo) {
-          var youtubeKey=repo.key;
-            console.log(youtubeKey);
+          var youtubeKey=response.results[0].key;
             var youtubeUrl="https://www.youtube.com/embed/"+youtubeKey;
-            console.log(youtubeUrl);
 
              var video = document.createElement("iframe");
                   video.src=youtubeUrl;
 
 
                   screen.appendChild(video);
-
-      });
+                  screen.classList.toggle('disappear');
 
         });
 
-
+    
 
        });
 
     });
 
   };
-  makeRequest(popUrl, displayPop);
 
+
+  
+  makeRequest(popUrl, displayPop);
   window.onload=search();
 
   function connect(url,callback) {
@@ -107,7 +116,11 @@ function displayPop(response) {
               var poster=document.createElement("img");
               sub_result.appendChild(poster);
               var y=i.Poster;
-              poster.src=y;
+              if(y !="N/A"){
+                  poster.src=y;
+                }else{
+                    poster.src='../public/image/notFound.jpg';
+                }
               var imgId = i.imdbID;
               poster.setAttribute("alt", imgId);
               poster.setAttribute("id", 'poster');
@@ -117,15 +130,36 @@ function displayPop(response) {
               sub_result .appendChild(year);
               var z = i.Year;
               year.textContent=z;
-
-
-              console.log(imgId);
-
           });
 
-
-
+          select("#search-reasult").scrollIntoView();
 
       });
+     
   });
+ 
   }
+
+ 
+  select('#search-button').addEventListener("click", function(event){
+    event.preventDefault;
+    var selectHead=select("#search-reasult").appendChild(document.createElement('h2'));
+    selectHead.textContent='Search Ruslt';
+  });
+
+  select('.on-off').addEventListener("click", function(event){
+    var x=select('.screen');
+    x.classList.toggle('disappear');
+  });
+
+//   this.select('.figure')[0].onmouseover( function(event){
+//     var figcaption=select('.figcaption');
+//     figcaption.classList.toggle('disappear');
+//   });
+  
+//  console.log(this.select('.figure')[0]);
+
+// var loading = document.createElement("span");
+// loading.textContent='loading ...'
+// select('.fullScreen').appendChild('loading');
+//  var screen=select('#screen');
